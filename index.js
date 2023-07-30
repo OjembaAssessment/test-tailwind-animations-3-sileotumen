@@ -6,9 +6,31 @@ Please contact the mail address you were provided in the README.md file.`
 );
 
 const invisible = "invisible";
+const hidden = "hidden";
+const bounce ="animate-bounce";
+
+function bounceArrow() {
+    {
+        const arrow = document.getElementById("arrow");
+            arrow.classList.add(bounce)
+    }
+
+}
+
+function noBounce() {
+    {
+        const arrow = document.getElementById("arrow");
+            arrow.classList.remove(bounce)
+    }
+
+}
 
 function removeSpinner() {
-    // seems like some code is missing here ...
+    {
+    const spinner = document.getElementById("spinner");
+            spinner.classList.add(hidden);
+    }
+
 }
 
 setTimeout(() => {
@@ -25,6 +47,8 @@ setTimeout(() => {
 function toggleGuineaPig() {
     const pig = document.getElementById("pig");
     const button = document.getElementById("button");
+    const placeholder = document.getElementById("placeholder");
+    const arrow = document.getElementById("arrow");
 
     if (pig == null) {
         console.log("Oh no, the picture of the guinea pig is gone! Did you change any IDs in the JS or HTML code?");
@@ -34,17 +58,28 @@ function toggleGuineaPig() {
         console.log("Oh no, the button is gone! Did you change any IDs in the JS or HTML code?");
     }
 
-    if (pig.classList.contains(invisible)) {
+    if (pig.classList.contains(hidden)) {
         button.innerText = "Hide It!";
+        placeholder.classList.remove(invisible)
+        arrow.classList.add(invisible)
         setTimeout(() => {
-            pig.classList.remove(invisible);
+            placeholder.classList.add(hidden)
+            pig.classList.remove(hidden);
         }, 2000);
     } else {
-        pig.classList.add(invisible);
+        placeholder.classList.remove(hidden);
+        placeholder.classList.add(invisible);
+        pig.classList.add(hidden);
         button.innerText = "Show Me!";
     }
 }
 
 function toggleDropdownOptions() {
-    // seems like some code is missing here ...
+    const dropdownoptions = document.getElementById("dropdownoptions");
+
+    if (dropdownoptions.classList.contains(invisible)) {
+        dropdownoptions.classList.remove(invisible)
+    } else {
+        dropdownoptions.classList.add(invisible);
+    }
 }
